@@ -1,0 +1,33 @@
+[
+  {
+    "role": "AI Product Manager",
+    "org": "RABBITT AI",
+    "period": "2025 — Present",
+    "summary": "Creating AI products from scratch.",
+    "highlights": [
+      "Defined the agent's product surface and eval rubric",
+      "Shipped categorization + cash-flow forecasting v1",
+      "Built the LLM evaluation pipeline gating releases"
+    ],
+    "type": "work"
+  },
+  {
+    "role": "Fintech and AI projects",
+    "org": "Coursework + open source",
+    "period": "2023 — 2024",
+    "summary": "Created projects on fintech ,AI and building full stack apps.",
+    "highlights": [],
+    "type": "project"
+  },
+  {
+    "role": "B.Tech, Computer Science",
+    "org": "University",
+    "period": "2023 — 2027",
+    "summary": "Concentration in data systems, ML, and applied financial computing.",
+    "highlights": [
+      "Coursework: Algorithms, ML, DBMS, Distributed Systems",
+      "Self-study: market microstructure, capital markets, agentic AI"
+    ],
+    "type": "education"
+  }
+]

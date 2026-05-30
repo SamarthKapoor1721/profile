@@ -1,0 +1,202 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Theme switch — circular reveal (View Transitions API).
+   Disable default crossfade; the JS animates clip-path on ::view-transition-new(root). */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-old(root) {
+  z-index: 1;
+}
+::view-transition-new(root) {
+  z-index: 2;
+}
+
+@layer base {
+  /* ───────────────────────── DARK (default) — Quant terminal ─────────────────────────
+     Near-black slate base, a single emerald accent, amber used sparingly.
+     Restrained, analytical, premium. No neon glow. */
+  :root,
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+
+    --bg: 8 11 16;            /* #080B10 - near-black slate */
+    --bg-elevated: 13 17 23;  /* #0D1117 */
+    --bg-panel: 17 22 29;     /* #11161D */
+
+    --fg: 230 237 243;        /* #E6EDF3 */
+    --fg-muted: 139 148 158;  /* #8B949E */
+    --fg-subtle: 110 118 129; /* #6E7681 */
+
+    /* Emerald — the single brand accent */
+    --primary-50: 209 250 229;
+    --primary-400: 52 211 153;  /* #34D399 */
+    --primary-500: 16 185 129;  /* #10B981 */
+    --primary-600: 5 150 105;   /* #059669 */
+    --primary-900: 6 46 38;
+
+    --accent-emerald: 16 185 129; /* #10B981 */
+    --accent-amber: 245 158 11;   /* #F59E0B - sparingly, highlights */
+    --accent-danger: 248 113 113; /* #F87171 - errors only */
+
+    --hairline: 240 246 252 / 0.06;
+    --border-soft: 240 246 252 / 0.10;
+    --border-strong: 240 246 252 / 0.18;
+
+    --glass-bg: 13 17 23 / 0.6;
+    --glass-bg-strong: 17 22 29 / 0.85;
+    --glass-border: 240 246 252 / 0.08;
+    --glass-border-strong: 240 246 252 / 0.14;
+
+    --panel-highlight: 255 255 255 / 0.04;
+    --panel-shadow: 0 0 0 / 0.6;
+
+    --scrollbar-track: 8 11 16;
+    --scrollbar-thumb: 240 246 252 / 0.12;
+
+    --body-glow:
+      radial-gradient(circle at 15% -10%, rgba(16, 185, 129, 0.08), transparent 45%),
+      radial-gradient(circle at 85% 0%, rgba(16, 185, 129, 0.05), transparent 45%);
+  }
+
+  /* ───────────────────────── LIGHT — Paper terminal ───────────────────────── */
+  :root[data-theme="light"] {
+    color-scheme: light;
+
+    --bg: 250 251 252;        /* #FAFBFC */
+    --bg-elevated: 255 255 255;
+    --bg-panel: 255 255 255;
+
+    --fg: 13 17 23;           /* #0D1117 */
+    --fg-muted: 87 96 106;    /* #57606A */
+    --fg-subtle: 110 118 129; /* #6E7681 */
+
+    --primary-50: 6 46 38;
+    --primary-400: 16 185 129;
+    --primary-500: 5 150 105;  /* #059669 - darker for contrast on light */
+    --primary-600: 4 120 87;
+    --primary-900: 209 250 229;
+
+    --accent-emerald: 5 150 105;
+    --accent-amber: 180 83 9;     /* #B45309 */
+    --accent-danger: 220 38 38;   /* #DC2626 */
+
+    --hairline: 13 17 23 / 0.07;
+    --border-soft: 13 17 23 / 0.10;
+    --border-strong: 13 17 23 / 0.18;
+
+    --glass-bg: 255 255 255 / 0.7;
+    --glass-bg-strong: 255 255 255 / 0.9;
+    --glass-border: 13 17 23 / 0.08;
+    --glass-border-strong: 13 17 23 / 0.14;
+
+    --panel-highlight: 255 255 255 / 0.9;
+    --panel-shadow: 13 17 23 / 0.06;
+
+    --scrollbar-track: 250 251 252;
+    --scrollbar-thumb: 13 17 23 / 0.15;
+
+    --body-glow:
+      radial-gradient(circle at 15% -10%, rgba(5, 150, 105, 0.05), transparent 45%);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    background-image: var(--body-glow);
+    background-attachment: fixed;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  ::selection {
+    background: rgb(var(--primary-500) / 0.25);
+    color: rgb(var(--fg));
+  }
+
+  ::-webkit-scrollbar { width: 9px; height: 9px; }
+  ::-webkit-scrollbar-track { background: rgb(var(--scrollbar-track)); }
+  ::-webkit-scrollbar-thumb {
+    background: rgb(var(--scrollbar-thumb));
+    border-radius: 6px;
+    border: 2px solid rgb(var(--scrollbar-track));
+  }
+  ::-webkit-scrollbar-thumb:hover { background: rgb(var(--fg-subtle)); }
+}
+
+@layer components {
+  /* Refined glass surfaces */
+  .glass {
+    background: rgb(var(--glass-bg));
+    border: 1px solid rgb(var(--glass-border));
+    box-shadow: 0 1px 0 rgb(var(--panel-highlight)) inset, 0 8px 30px -12px rgb(var(--panel-shadow));
+    @apply backdrop-blur-xl;
+  }
+
+  .glass-strong {
+    background: rgb(var(--glass-bg-strong));
+    border: 1px solid rgb(var(--glass-border-strong));
+    box-shadow: 0 1px 0 rgb(var(--panel-highlight)) inset, 0 24px 48px -24px rgb(var(--panel-shadow));
+    @apply backdrop-blur-2xl;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-br from-foreground via-foreground to-foreground/60;
+  }
+
+  /* Subtle emerald wash for select headline words */
+  .text-accent {
+    background: linear-gradient(135deg, rgb(var(--primary-400)) 0%, rgb(var(--primary-600)) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .container-prose {
+    @apply mx-auto w-full max-w-6xl px-6 md:px-10;
+  }
+
+  .hairline {
+    border-top: 1px solid rgb(var(--hairline));
+  }
+
+  /* Monospace micro-label — used for data/section eyebrows only */
+  .label-mono {
+    @apply inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.18em] uppercase text-foreground-subtle;
+  }
+
+  /* Tech tag/chip — quiet, bordered */
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-md px-2.5 py-1 text-[11px] font-mono font-medium tracking-wide;
+    border: 1px solid rgb(var(--border-soft));
+    background: rgb(var(--bg-elevated) / 0.6);
+    color: rgb(var(--fg-muted));
+  }
+
+  .chip-accent {
+    border-color: rgb(var(--primary-500) / 0.3);
+    color: rgb(var(--primary-400));
+    background: rgb(var(--primary-500) / 0.06);
+  }
+
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500/60 focus-visible:ring-offset-2;
+    --tw-ring-offset-color: rgb(var(--bg));
+  }
+}
+
+@layer utilities {
+  .mask-fade-b {
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent);
+            mask-image: linear-gradient(to bottom, black 70%, transparent);
+  }
+  .text-balance { text-wrap: balance; }
+}

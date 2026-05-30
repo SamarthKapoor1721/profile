@@ -1,0 +1,74 @@
+[
+  {
+    "name": "AWS CLOUD TECHNICAL ESSENTIALS",
+    "issuer": "AWS",
+    "date": "2025-02",
+    "category": "AI",
+    "credentialUrl": "https://www.coursera.org/account/accomplishments/verify/SAA1CLXUW91W",
+    "image": "/images/uploads/1780177821249-aws-specialisation.pdf"
+  },
+  {
+    "name": "Financial Markets",
+    "issuer": "YALE UNIVERSITY",
+    "date": "2024-11",
+    "category": "Fintech",
+    "credentialUrl": "https://www.coursera.org/account/accomplishments/verify/NH0P4AY4BCCT",
+    "image": "/images/uploads/1780178060883-financial-markets.pdf"
+  },
+  {
+    "name": "Artificial Intelligence in Finance and Wealth Management",
+    "issuer": "ILLINOIS",
+    "date": "2026-05",
+    "category": "AI",
+    "credentialUrl": "#https://www.coursera.org/account/accomplishments/specialization/NCUA8YJQJ018",
+    "image": "/images/uploads/1780178191009-artificial-intelligence-machine-learning.pdf"
+  },
+  {
+    "name": "Programming in python and R",
+    "issuer": "Coursera",
+    "date": "2025-05",
+    "category": "AI",
+    "credentialUrl": "https://www.coursera.org/account/accomplishments/verify/MX8B3EYI0DDT#",
+    "image": "/images/uploads/1780178497503-data-cleaning-for-finance.pdf"
+  },
+  {
+    "name": "Cybersecurity in fintech ",
+    "issuer": "THE HONG KONG UNIVERSITY OF SCIENCE AND TECHNOLOGY",
+    "date": "2026-05",
+    "category": "Fintech",
+    "credentialUrl": "#https://coursera.org/verify/V4GK7X084Y0Q",
+    "image": "/images/uploads/1780178849973-cybersecurity-in-fintech.pdf"
+  },
+  {
+    "name": "Digital payments, blockchain and smart contracts ",
+    "issuer": "AI CERTS",
+    "date": "2026-05",
+    "category": "Fintech",
+    "credentialUrl": "https://coursera.org/verify/U3RLHCOOP4BB",
+    "image": "/images/uploads/1780178938030-digital-payments-blockchain-and-smart-co.pdf"
+  },
+  {
+    "name": "Job & Exam Aptitude Mastery: Reasoning | DI | Verbal | Quant",
+    "issuer": "Board infinity",
+    "date": "2026-05",
+    "category": "Data",
+    "credentialUrl": "#https://coursera.org/verify/specialization/HIV9A056FGO4",
+    "image": "/images/uploads/1780179010948-job-exam-aptitude-mastery-reasoning-di-v.pdf"
+  },
+  {
+    "name": "Communication for Everyone",
+    "issuer": "Arizona State University",
+    "date": "2026-05",
+    "category": "Data",
+    "credentialUrl": "#",
+    "image": "/images/uploads/1780179147502-communication-for-everyone.pdf"
+  },
+  {
+    "name": "C Programming ",
+    "issuer": "Duke university",
+    "date": "2024-05",
+    "category": "Data",
+    "credentialUrl": "#https://coursera.org/verify/specialization/MHEDH2VVTYHQ",
+    "image": "/images/uploads/1780179255822-2310992202-all-specialization.pdf"
+  }
+]

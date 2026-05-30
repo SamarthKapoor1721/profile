@@ -1,0 +1,107 @@
+[
+  {
+    "slug": "caltrack",
+    "title": "CalTrack",
+    "tagline": "Lightweight full-stack calorie & exercise tracker",
+    "problem": "Users struggle to consistently log food and workouts and to understand their daily calorie balance across meals and exercise. Existing consumer apps are either bloated or privacy-invasive.",
+    "approach": "Built a secure Next.js app with a Prisma + PostgreSQL backend, NextAuth for authentication, and integrations to USDA FoodData Central and an exercise API to auto-calculate nutrition and calories. Implemented robust server-side validation, Prisma migrations, and deployed to Render with CI and migration hooks.",
+    "stack": [
+      "Next.js",
+      "Prisma",
+      "PostgreSQL (Neon)",
+      "NextAuth",
+      "Render",
+      "USDA FDC API",
+      "Exercise API"
+    ],
+    "impact": [
+      "Enabled accurate food and workout logging for pilot users (privacy-first, self-hostable).",
+      "Reduced authentication-related production failures by addressing env/secret misconfiguration (e.g., switching to NEXTAUTH_* env names).",
+      "Automated database migrations and Prisma client generation in CI, improving deploy reliability."
+    ],
+    "category": "Health / Productivity",
+    "year": "2026",
+    "links": {
+      "demo": "https://caltrack-6c2q.onrender.com/"
+    }
+  },
+  {
+    "slug": "fintech-intelligence-risk-analytics",
+    "title": "FinTech Intelligence & Risk Analytics",
+    "tagline": "AI-driven financial intelligence and risk monitoring dashboard",
+    "problem": "Financial institutions and analysts lacked a unified platform to monitor fraud risks, AML activities, UPI growth trends, and market intelligence in a single lightweight system.",
+    "approach": "Built a modular Streamlit-based analytics dashboard integrating fraud detection, AML verification, market analysis, and UPI forecasting modules. Designed each feature as an independent Python module with scalable architecture and real-time visualization support.",
+    "stack": [
+      "Python",
+      "Streamlit",
+      "Pandas",
+      "NumPy",
+      "Scikit-learn",
+      "Matplotlib",
+      "Machine Learning",
+      "Financial Analytics"
+    ],
+    "impact": [
+      "Unified multiple FinTech intelligence workflows into a single dashboard",
+      "Interactive visualizations for fraud monitoring and market insights",
+      "Modular architecture enabling rapid addition of new analytics modules"
+    ],
+    "category": "FinTech",
+    "year": "2026",
+    "links": {
+      "demo": "https://finshieldai.streamlit.app/"
+    }
+  },
+  {
+    "slug": "timevault-dapp",
+    "title": "TimeVault",
+    "tagline": "Decentralized time-locked secret messaging on Ethereum",
+    "problem": "Traditional messaging platforms cannot guarantee censorship resistance, decentralized storage, or cryptographic time-based access control for sensitive communication.",
+    "approach": "Developed a full-stack decentralized application using Solidity smart contracts, React, and IPFS to enable users to send encrypted time-locked messages. Leveraged blockchain-based unlock conditions and decentralized storage through Pinata/IPFS to ensure secure, low-cost, and tamper-resistant message delivery.",
+    "stack": [
+      "Solidity",
+      "Hardhat",
+      "React",
+      "Ethers.js",
+      "IPFS",
+      "Pinata",
+      "MetaMask",
+      "Tailwind CSS",
+      "Vite",
+      "Ethereum Sepolia"
+    ],
+    "impact": [
+      "Implemented decentralized time-based message unlocking using Ethereum smart contracts",
+      "Reduced on-chain storage costs by storing encrypted content on IPFS",
+      "Built a modular Web3 frontend with wallet authentication and real-time countdown tracking"
+    ],
+    "category": "Blockchain",
+    "year": "2026",
+    "links": {
+      "demo": "https://timevault-black.vercel.app/"
+    }
+  },
+  {
+    "slug": "convos",
+    "title": "Convos",
+    "tagline": "Real-time multi-user chat platform for seamless communication",
+    "problem": "Modern communication platforms require low-latency messaging and synchronized conversations, but many lightweight chat solutions lack scalable real-time interaction features.",
+    "approach": "Developed a real-time chat application using WebSocket-based communication to enable instant message delivery, live room interactions, and synchronized user conversations. Designed a responsive frontend with efficient backend event handling for smooth real-time updates.",
+    "stack": [
+      "React",
+      "Node.js",
+      "Express.js",
+      "Socket.IO",
+      "MongoDB",
+      "JavaScript",
+      "Tailwind CSS"
+    ],
+    "impact": [
+      "Enabled instant real-time communication between multiple users",
+      "Implemented room-based messaging architecture for organized discussions",
+      "Delivered responsive and interactive user experience with live updates"
+    ],
+    "category": "Full Stack",
+    "year": "2026"
+  }
+]
