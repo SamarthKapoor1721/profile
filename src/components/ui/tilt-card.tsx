@@ -55,7 +55,7 @@ export default function TiltCard({
       <motion.div
         aria-hidden
         style={{ background: glare }}
-        className="pointer-events-none absolute inset-0 z-20 rounded-[inherit] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        className="pointer-events-none absolute inset-0 z-20 rounded-[inherit] opacity-0 transition-opacity duration-300 group-hover:opacity-100 [@media(hover:none)]:opacity-100"
       />
     </motion.div>
   );

@@ -69,14 +69,6 @@ export default function Contact() {
             <ContactRow icon={Linkedin} label="LinkedIn" href="https://linkedin.com/" />
             <ContactRow icon={Github} label="GitHub" href="https://github.com/" />
           </div>
-
-          <div className="mt-8 rounded-lg border border-border-soft p-4 bg-background/40">
-            <div className="label-mono text-primary-400">Currently</div>
-            <p className="mt-2 text-sm text-foreground-muted leading-relaxed">
-              Leading AI product at <span className="text-foreground font-medium">DeepMoney</span>,
-              working on transaction intelligence and cash-flow forecasting.
-            </p>
-          </div>
         </GlassPanel>
 
         {/* Form */}

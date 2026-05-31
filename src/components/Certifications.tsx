@@ -61,6 +61,10 @@ export default function Certifications() {
                       <Eye className="h-4 w-4" /> View
                     </span>
                   </span>
+                  {/* persistent affordance for touch (no hover) */}
+                  <span className="absolute right-2 top-2 grid h-7 w-7 place-items-center rounded-md border border-border-soft bg-background/70 text-foreground-muted md:hidden">
+                    <Eye className="h-3.5 w-3.5" />
+                  </span>
                 </button>
               )}
 
@@ -127,8 +131,8 @@ function CertSeal({ cert, onView }: { cert: Certification; onView: () => void })
       {/* shimmer sweep on hover */}
       <div className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-primary-500/15 to-transparent transition-transform duration-[900ms] ease-out group-hover:translate-x-full" />
 
-      {/* hover hint */}
-      <span className="absolute bottom-2.5 inline-flex items-center gap-1.5 text-xs font-medium text-foreground-muted opacity-0 transition-opacity group-hover:opacity-100">
+      {/* hint — shown on hover, and always on touch (no hover) */}
+      <span className="absolute bottom-2.5 inline-flex items-center gap-1.5 text-xs font-medium text-foreground-muted opacity-0 transition-opacity group-hover:opacity-100 [@media(hover:none)]:opacity-100">
         <Eye className="h-3.5 w-3.5" /> View certificate
       </span>
     </button>

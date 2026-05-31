@@ -103,5 +103,23 @@
     ],
     "category": "Full Stack",
     "year": "2026"
+  },
+  {
+    "title": "Talking rabbitt",
+    "slug": "talking",
+    "tagline": "Ask questions about your data in plain English. Get instant answers and visualizations.",
+    "category": "Fintech",
+    "year": "2025",
+    "problem": "",
+    "approach": "Upload CSV → LLM interprets question → safe pandas execution → optional Plotly chart → return answer + visualization.\n- Placeholder: add more details about safety filtering, prompt engineering, or pipeline components.\n",
+    "stack": [
+      "Streamlit (frontend + app)",
+      "- Pandas (data processing)",
+      "- Plotly (visualization)"
+    ],
+    "impact": [],
+    "links": {
+      "demo": "https://talkingrabbitai.streamlit.app/"
+    }
   }
 ]

@@ -29,7 +29,8 @@ export default function GlowBorder({
         className={cn(
           "absolute inset-[-150%] animate-spin [animation-duration:6s] transition-opacity duration-500",
           "bg-[conic-gradient(from_0deg,transparent_0%,rgb(var(--primary-500))_15%,transparent_35%)]",
-          always ? "opacity-70" : "opacity-0 group-hover:opacity-100",
+          // On touch devices there's no hover, so reveal it by default there.
+          always ? "opacity-70" : "opacity-0 group-hover:opacity-100 [@media(hover:none)]:opacity-100",
         )}
       />
       <div className={cn("relative rounded-[calc(0.75rem-1px)] bg-background-panel h-full", innerClassName)}>

@@ -20,9 +20,8 @@ export default function Footer() {
           <Social href="mailto:kapoorsammy05@gmail.com" label="Email"><Mail className="h-4 w-4" /></Social>
         </div>
       </div>
-      <div className="container-prose pb-8 border-t border-border-soft pt-6 text-xs text-foreground-subtle flex flex-col sm:flex-row justify-between gap-2">
+      <div className="container-prose pb-8 border-t border-border-soft pt-6 text-xs text-foreground-subtle">
         <span>© {year} Samarth Kapoor</span>
-        <span className="font-mono">Built with Next.js · Tailwind</span>
       </div>
     </footer>
   );
