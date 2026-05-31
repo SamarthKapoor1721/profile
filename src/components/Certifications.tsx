@@ -73,10 +73,10 @@ export default function Certifications() {
                 <span className="chip">{c.category}</span>
               </div>
 
-              <h3 className="mt-4 font-display text-base font-semibold tracking-tight leading-snug text-foreground">
+              <h3 className="mt-4 font-sans text-base font-bold leading-snug text-foreground">
                 {c.name}
               </h3>
-              <p className="mt-1 text-sm text-foreground-subtle">{c.issuer}</p>
+              <p className="mt-1 text-sm text-foreground-muted">{c.issuer}</p>
 
               <div className="mt-5 flex items-center justify-between border-t border-border-soft pt-3 text-xs">
                 <span className="font-mono text-foreground-subtle">{formatDate(c.date)}</span>

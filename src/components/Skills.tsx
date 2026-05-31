@@ -39,31 +39,29 @@ export default function Skills() {
           >
             <GlowBorder className="h-full">
               <div className="p-6 h-full">
-                <div className="flex items-center justify-between pb-4 border-b border-border-soft">
-                  <h3 className="text-sm font-semibold text-foreground">
+                <div className="flex items-center justify-between pb-4 border-b-2 border-dashed border-border-soft">
+                  <h3 className="font-display text-lg tracking-wide text-foreground">
                     {titleFor(cat.id)}
                   </h3>
-                  <span className="font-mono text-xs text-foreground-subtle">
-                    {cat.items.length}
-                  </span>
+                  <span className="chip">{cat.items.length} powers</span>
                 </div>
 
                 <ul className="mt-5 space-y-4">
                   {cat.items.map((s, i) => (
                     <li key={s.name}>
-                      <div className="flex items-center justify-between text-sm">
+                      <div className="flex items-center justify-between text-base">
                         <span className="text-foreground-muted">{s.name}</span>
                         <span className="font-mono text-xs text-foreground-subtle tabular-nums">
                           {s.level}
                         </span>
                       </div>
-                      <div className="mt-2 h-1.5 rounded-full bg-foreground/[0.06] overflow-hidden">
+                      <div className="mt-2 h-2.5 rounded-full border-2 border-foreground bg-background overflow-hidden">
                         <motion.div
                           initial={{ width: 0 }}
                           whileInView={{ width: `${s.level}%` }}
                           viewport={{ once: true, margin: "-60px" }}
                           transition={{ delay: 0.1 + i * 0.05, duration: 1, ease: [0.22, 1, 0.36, 1] }}
-                          className="h-full rounded-full bg-primary-500"
+                          className="h-full bg-primary-500"
                         />
                       </div>
                     </li>

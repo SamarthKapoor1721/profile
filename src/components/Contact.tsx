@@ -58,9 +58,9 @@ export default function Contact() {
 
       <div className="mt-14 grid gap-6 lg:grid-cols-5">
         {/* Direct channels */}
-        <GlassPanel className="lg:col-span-2 p-6 md:p-8 rounded-xl">
-          <h3 className="text-sm font-semibold text-foreground">Direct</h3>
-          <p className="mt-1 text-sm text-foreground-subtle">
+        <GlassPanel className="lg:col-span-2 p-6 md:p-8 rounded-xl spidey-sense">
+          <h3 className="font-display text-2xl tracking-wide text-foreground">Reach the desk</h3>
+          <p className="mt-1 font-scrawl text-base text-foreground-subtle">
             The fastest ways to reach me.
           </p>
 
@@ -133,13 +133,13 @@ function ContactRow({
       href={href}
       target={href.startsWith("http") ? "_blank" : undefined}
       rel="noreferrer"
-      className="group flex items-center gap-3 rounded-lg border border-border-soft bg-background/30
-                 px-4 py-3 hover:border-primary-500/40 hover:bg-foreground/[0.03] transition-colors focus-ring"
+      className="group flex items-center gap-3 rounded-[10px_12px_9px_13px] border-2 border-foreground bg-background-elevated
+                 px-4 py-3 shadow-ink-sm hover:-translate-y-0.5 hover:shadow-ink transition-all focus-ring"
     >
-      <span className="rounded-md border border-border-soft p-2 group-hover:border-primary-500/30 transition-colors">
-        <Icon className="h-4 w-4 text-foreground-muted group-hover:text-primary-400 transition-colors" />
+      <span className="rounded-md border-2 border-foreground p-2 group-hover:bg-primary-500 transition-colors">
+        <Icon className="h-4 w-4 text-foreground group-hover:text-white transition-colors" />
       </span>
-      <span className="text-sm text-foreground-muted group-hover:text-foreground transition-colors">
+      <span className="text-base text-foreground-muted group-hover:text-foreground transition-colors">
         {label}
       </span>
     </a>
@@ -162,13 +162,13 @@ function Field({
   error?: string;
 }) {
   const baseCls =
-    "w-full rounded-lg border border-border-soft bg-background/50 px-4 py-2.5 text-sm " +
+    "w-full rounded-[10px] border-2 border-foreground bg-background-elevated px-4 py-2.5 text-base font-sans " +
     "text-foreground placeholder:text-foreground-subtle/60 " +
-    "focus:outline-none focus:border-primary-500/50 focus:ring-2 focus:ring-primary-500/20 " +
+    "focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/30 " +
     "transition-all";
   return (
     <label className="block">
-      <span className="text-sm font-medium text-foreground-muted mb-1.5 block">{label}</span>
+      <span className="font-scrawl text-base text-foreground-muted mb-1.5 block">{label}</span>
       {textarea ? (
         <textarea name={name} rows={4} placeholder={placeholder} className={baseCls} />
       ) : (

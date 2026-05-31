@@ -13,13 +13,14 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   withArrow?: boolean;
 }
 
+// Comic-button inks: hard ink outline + offset drop, lifts on hover, presses flat on click.
 const variants: Record<Variant, string> = {
   primary:
-    "bg-primary-500 text-background font-semibold border border-primary-500 hover:bg-primary-400 hover:border-primary-400 transition-colors active:scale-[0.98]",
+    "bg-primary-500 text-white border-2 border-foreground shadow-ink-sm hover:-translate-y-0.5 hover:shadow-ink active:translate-y-0.5 active:shadow-none",
   secondary:
-    "border border-border-strong text-foreground bg-background-elevated/40 hover:bg-background-elevated hover:border-foreground/30 transition-colors active:scale-[0.98]",
+    "bg-background-elevated text-foreground border-2 border-foreground shadow-ink-sm hover:-translate-y-0.5 hover:shadow-ink active:translate-y-0.5 active:shadow-none",
   ghost:
-    "text-foreground-muted hover:text-foreground bg-transparent transition-colors active:scale-[0.98]",
+    "text-foreground-muted hover:text-primary-500 bg-transparent border-2 border-transparent active:scale-[0.98]",
 };
 
 export default function Button({
@@ -32,8 +33,8 @@ export default function Button({
   ...props
 }: ButtonProps) {
   const base = cn(
-    "inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-medium",
-    "transition-all duration-200 focus-ring",
+    "inline-flex items-center justify-center gap-2 rounded-[10px_12px_9px_13px] px-5 py-2.5 text-base font-sans",
+    "transition-all duration-150 focus-ring",
     variants[variant],
     className,
   );

@@ -27,22 +27,21 @@ export default function SectionHeading({
       )}
     >
       {eyebrow && (
-        <motion.span
+        <motion.div
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
-          className={cn("label-mono text-primary-400", align === "center" && "justify-center")}
+          className={cn(align === "center" && "flex justify-center")}
         >
-          <span className="h-px w-6 bg-primary-500/60" />
-          {eyebrow}
-        </motion.span>
+          <span className="kicker">{eyebrow}</span>
+        </motion.div>
       )}
       <motion.h2
-        initial={{ opacity: 0, y: 12 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, scale: 0.9, y: 12 }}
+        whileInView={{ opacity: 1, scale: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className="mt-4 font-display text-3xl md:text-4xl font-semibold tracking-tight text-balance"
+        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        className="mt-3 font-display text-4xl md:text-5xl tracking-wide leading-[0.95] text-balance"
       >
         {title}
       </motion.h2>
@@ -52,7 +51,7 @@ export default function SectionHeading({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ delay: 0.1, duration: 0.6 }}
-          className="mt-4 text-foreground-muted leading-relaxed text-balance"
+          className="mt-4 text-lg text-foreground-muted leading-relaxed text-balance"
         >
           {description}
         </motion.p>

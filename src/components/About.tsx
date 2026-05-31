@@ -48,14 +48,17 @@ export default function About() {
 
       <div className="mt-14 grid gap-6 lg:grid-cols-5">
 
-        {/* Profile + bio */}
-        <GlassPanel className="lg:col-span-3 p-6 md:p-8 rounded-xl">
+        {/* Profile + bio — the origin-story narration panel */}
+        <GlassPanel className="lg:col-span-3 p-6 md:p-8 rounded-xl spidey-sense">
           <div className="flex flex-col sm:flex-row gap-6">
             <Portrait />
 
             <div className="flex-1 min-w-0 flex flex-col">
-              <span className="label-mono text-primary-400">Profile</span>
-              <p className="mt-4 text-sm text-foreground-muted leading-relaxed">
+              <span className="label-mono">↳ narration caption · origin story</span>
+              <h3 className="mt-1 font-display text-2xl tracking-wide text-foreground">
+                PANEL · ORIGIN STORY
+              </h3>
+              <p className="mt-3 text-base text-foreground-muted leading-relaxed">
                 A developer who also manages product. I bridge machine-learning
                 systems and financial infrastructure — designing robust LLM
                 evaluation pipelines, deploying cash-flow forecasting models, and
@@ -63,7 +66,7 @@ export default function About() {
                 guess: every parameter gets tracked and optimized.
               </p>
 
-              <dl className="mt-6 border-t border-border-soft pt-4 grid grid-cols-2 gap-x-4 gap-y-3 font-mono text-xs">
+              <dl className="mt-6 border-t-2 border-dashed border-border-soft pt-4 grid grid-cols-2 gap-x-4 gap-y-3 font-mono text-xs">
                 <Meta k="Role" v="AI PM · Research" />
                 <Meta k="Focus" v="Fintech · ML" />
                 <Meta k="Based" v="India · Remote" />
@@ -81,12 +84,12 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08, duration: 0.5 }}
-                className="rounded-lg p-4 border border-border-soft bg-background/40 hover:border-primary-500/30 transition-colors"
+                className="rounded-[10px_12px_9px_13px] p-4 border-2 border-foreground bg-background/40 shadow-ink-sm spidey-sense"
               >
-                <div className="text-sm font-semibold text-foreground">
+                <div className="font-display text-base tracking-wide text-foreground">
                   {p.title}
                 </div>
-                <p className="mt-2 text-xs text-foreground-muted leading-relaxed">
+                <p className="mt-2 text-sm text-foreground-muted leading-relaxed">
                   {p.body}
                 </p>
               </motion.div>
@@ -94,10 +97,10 @@ export default function About() {
           </div>
         </GlassPanel>
 
-        {/* Capability radar */}
-        <GlassPanel className="lg:col-span-2 p-6 md:p-8 rounded-xl">
+        {/* Capability radar — a literal spider-chart, on theme */}
+        <GlassPanel className="lg:col-span-2 p-6 md:p-8 rounded-xl spidey-sense halftone">
           <div className="flex items-center justify-between">
-            <span className="label-mono text-primary-400">Capabilities</span>
+            <span className="label-mono">🕸 skill radar</span>
             <span className="chip">self-assessed</span>
           </div>
 
@@ -107,7 +110,7 @@ export default function About() {
                 <PolarGrid stroke="rgb(var(--border-soft))" />
                 <PolarAngleAxis
                   dataKey="axis"
-                  tick={{ fill: "rgb(var(--fg-muted))", fontSize: 11, fontFamily: "var(--font-inter)" }}
+                  tick={{ fill: "rgb(var(--fg-muted))", fontSize: 12, fontFamily: "var(--font-sans)" }}
                 />
                 <PolarRadiusAxis angle={90} domain={[0, 100]} tick={false} axisLine={false} />
                 <Radar

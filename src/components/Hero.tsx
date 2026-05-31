@@ -1,20 +1,13 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Button from "@/components/ui/Button";
 import CountUp from "@/components/ui/count-up";
 import LiveChart from "@/components/ui/live-chart";
 import GlowBorder from "@/components/ui/glow-border";
-import { Spotlight } from "@/components/ui/spotlight";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import { ArrowRight, ArrowUpRight, TrendingUp, Activity } from "lucide-react";
-
-const HeroScene = dynamic(() => import("@/components/three/HeroScene"), {
-  ssr: false,
-  loading: () => null,
-});
 
 const stats = [
   { label: "Forecast accuracy", value: 92, suffix: "%" },
@@ -23,28 +16,47 @@ const stats = [
   { label: "Corridors modeled", value: 12 },
 ];
 
+/** Hand-inked web strands in a panel corner — the comic-page gutter motif. */
+function WebCorner({ className }: { className?: string }) {
+  return (
+    <svg
+      aria-hidden
+      viewBox="0 0 100 100"
+      className={className}
+      style={{ position: "absolute", width: 110, height: 110, pointerEvents: "none", opacity: 0.45 }}
+    >
+      <path
+        d="M0 0 L100 30 M0 0 L30 100 M0 0 L70 70 M0 25 L60 90 M25 0 L90 60"
+        stroke="rgb(var(--fg))"
+        fill="none"
+        strokeWidth="1.2"
+      />
+      <path
+        d="M18 6 Q30 22 8 34 M40 10 Q52 30 14 52 M62 16 Q70 40 24 72"
+        stroke="rgb(var(--fg))"
+        fill="none"
+        strokeWidth="0.8"
+        opacity="0.7"
+      />
+    </svg>
+  );
+}
+
 export default function Hero() {
   return (
     <section
       id="hero"
       className="relative min-h-[100svh] w-full overflow-hidden flex items-center"
     >
-      <div className="pointer-events-none absolute inset-0 -z-10 mask-fade-b opacity-40 dark:opacity-60">
-        <HeroScene />
-      </div>
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 bg-grid-fade opacity-60"
-      />
-      <Spotlight
-        className="-top-40 left-0 md:-top-20 md:left-52"
-        fill="rgba(16, 185, 129, 0.18)"
-      />
+      {/* Halftone shading + inked web corners — the splash-page backdrop */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 bg-grid-fade opacity-50" />
+      <WebCorner className="left-0 top-24 -z-10" />
+      <WebCorner className="right-0 bottom-10 -z-10 rotate-180" />
 
       <div className="container-prose pt-36 pb-24 w-full">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-10 items-center">
 
-          {/* Left: introduction */}
+          {/* Left: splash panel */}
           <div className="lg:col-span-7 flex flex-col items-start">
             <motion.div
               initial={{ opacity: 0, y: 8 }}
@@ -52,36 +64,49 @@ export default function Hero() {
               transition={{ duration: 0.5 }}
               className="label-mono"
             >
-              <span className="relative flex h-2 w-2">
+              <span className="relative flex h-2.5 w-2.5">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary-500/60" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-primary-500" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-primary-500" />
               </span>
-              Available for AI / fintech roles
+              spidey-sense: available for AI / fintech roles
             </motion.div>
 
-            <h1 className="mt-6 font-display text-5xl md:text-7xl font-semibold tracking-tight leading-[0.95]">
+            <h1 className="mt-5 font-display text-6xl md:text-8xl tracking-wide leading-[0.85]">
               <motion.span
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.05, duration: 0.5 }}
+                initial={{ opacity: 0, scale: 0.85, rotate: -2 }}
+                animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                transition={{ delay: 0.05, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                 className="block text-foreground"
               >
-                Samarth Kapoor
+                SAMARTH
+              </motion.span>
+              <motion.span
+                initial={{ opacity: 0, scale: 0.85, rotate: 2 }}
+                animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                transition={{ delay: 0.15, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                className="block text-accent"
+              >
+                KAPOOR
               </motion.span>
             </h1>
 
-            <motion.p
+            {/* Tagline as a comic speech bubble */}
+            <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.15, duration: 0.5 }}
-              className="mt-3 text-lg md:text-xl text-foreground-muted font-medium"
+              transition={{ delay: 0.25, duration: 0.5 }}
+              className="relative mt-6 inline-block max-w-md rounded-[16px_12px_18px_13px] border-[2.5px] border-foreground bg-background-elevated px-5 py-3 shadow-ink"
             >
-              AI Product Manager · Data Science &amp; Fintech
-            </motion.p>
+              <span className="font-display text-xl tracking-wide text-foreground">
+                AI Product Manager · Data Science &amp; Fintech!
+              </span>
+              {/* bubble tail */}
+              <span className="absolute -bottom-[11px] left-9 h-4 w-4 rotate-45 border-b-[2.5px] border-r-[2.5px] border-foreground bg-background-elevated" />
+            </motion.div>
 
             <TextGenerateEffect
               words="I build intelligent money infrastructure — pairing agentic ML pipelines with payments and market-structure expertise to ship data products that are measured, not guessed."
-              className="mt-6 max-w-xl font-sans text-base leading-relaxed text-foreground-muted text-balance"
+              className="mt-7 max-w-xl font-sans text-lg leading-relaxed text-foreground-muted text-balance"
               duration={0.4}
             />
 
@@ -109,8 +134,8 @@ export default function Hero() {
               className="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-x-8 gap-y-6 w-full max-w-2xl"
             >
               {stats.map((s) => (
-                <div key={s.label} className="border-l border-border-soft pl-4">
-                  <dt className="font-mono text-[11px] uppercase tracking-wider text-foreground-subtle">
+                <div key={s.label} className="border-l-[3px] border-primary-500 pl-4">
+                  <dt className="font-scrawl text-xs tracking-wide text-foreground-subtle">
                     {s.label}
                   </dt>
                   <dd className="mt-1 font-mono text-2xl font-semibold text-foreground tabular-nums">
@@ -126,23 +151,24 @@ export default function Hero() {
             </motion.dl>
           </div>
 
-          {/* Right: live dashboard */}
+          {/* Right: live dashboard — the "spider-radar" data panel */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
             <motion.div
               initial={{ opacity: 0, y: 16, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ delay: 0.3, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="w-full max-w-md"
+              className="relative w-full max-w-md"
             >
+              <span className="comic-tag absolute -top-3 left-6 z-10">live data feed</span>
               <HeroDashboard />
             </motion.div>
           </div>
         </div>
       </div>
 
-      <div className="pointer-events-none absolute bottom-8 left-1/2 -translate-x-1/2 text-foreground-subtle text-[11px] font-mono tracking-[0.2em] flex flex-col items-center gap-2">
-        <span>scroll</span>
-        <span className="h-8 w-px bg-gradient-to-b from-foreground-subtle/50 to-transparent animate-pulse" />
+      <div className="pointer-events-none absolute bottom-8 left-1/2 -translate-x-1/2 text-foreground-subtle text-xs font-scrawl tracking-[0.2em] flex flex-col items-center gap-2">
+        <span>scroll ↓</span>
+        <span className="h-8 w-px bg-gradient-to-b from-foreground-subtle/60 to-transparent animate-pulse" />
       </div>
     </section>
   );

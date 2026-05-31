@@ -33,7 +33,7 @@ export const TextGenerateEffect = ({
   }, [animate, duration, filter]);
 
   return (
-    <div className={cn("font-display", className)}>
+    <div className={cn(className)}>
       <motion.div ref={scope}>
         {wordsArray.map((word, idx) => (
           <motion.span

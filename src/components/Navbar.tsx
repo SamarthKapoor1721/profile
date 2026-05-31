@@ -60,21 +60,21 @@ export default function Navbar() {
           <Link
             href="/"
             onClick={() => setMenuOpen(false)}
-            className="flex items-center gap-2 font-display text-base font-semibold tracking-tight focus-ring rounded-md px-1"
+            className="flex items-center gap-2 font-display text-lg tracking-wide focus-ring rounded-md px-1"
           >
-            <span className="grid h-7 w-7 place-items-center rounded-md bg-primary-500/15 border border-primary-500/30 font-mono text-sm font-bold text-primary-400">
+            <span className="grid h-8 w-8 place-items-center rounded-[9px_11px_8px_12px] bg-primary-500 border-2 border-foreground font-display text-lg text-white shadow-ink-sm">
               S
             </span>
             <span className="text-foreground">Samarth Kapoor</span>
           </Link>
 
-          {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-1 text-sm">
+          {/* Desktop nav — comic tabs */}
+          <nav className="hidden md:flex items-center gap-2 text-base">
             {links.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
-                className="px-3 py-1.5 rounded-md text-foreground-muted hover:text-foreground hover:bg-foreground/[0.04] transition-colors focus-ring"
+                className="rounded-[10px_12px_9px_13px] border-2 border-transparent px-3 py-1.5 text-foreground-muted hover:text-foreground hover:border-foreground hover:-translate-y-0.5 hover:shadow-ink-sm transition-all focus-ring"
               >
                 {l.label}
               </a>
@@ -139,7 +139,7 @@ export default function Navbar() {
               <a
                 href="#contact"
                 onClick={() => setMenuOpen(false)}
-                className="mt-1 flex items-center justify-center gap-2 rounded-lg bg-primary-500 px-4 py-3 text-sm font-semibold text-background hover:bg-primary-400 transition-colors"
+                className="mt-1 flex items-center justify-center gap-2 rounded-[10px_12px_9px_13px] border-2 border-foreground bg-primary-500 px-4 py-3 text-base text-white shadow-ink-sm hover:-translate-y-0.5 transition-all"
               >
                 Contact <ArrowUpRight className="h-4 w-4" />
               </a>

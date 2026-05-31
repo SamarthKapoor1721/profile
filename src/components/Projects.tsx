@@ -41,20 +41,20 @@ export default function Projects() {
                     <span className="font-mono text-xs text-foreground-subtle">{p.year}</span>
                   </div>
 
-                  <h3 className="mt-5 font-display text-xl font-semibold tracking-tight text-foreground group-hover:text-primary-400 transition-colors">
+                  <h3 className="mt-5 font-display text-2xl tracking-wide text-foreground group-hover:text-primary-500 transition-colors">
                     {p.title}
                   </h3>
-                  <p className="mt-2 text-sm text-foreground-muted leading-relaxed line-clamp-3">
+                  <p className="mt-2 text-base text-foreground-muted leading-relaxed line-clamp-3">
                     {p.tagline}
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-border-soft">
+                <div className="mt-6 pt-4 border-t-2 border-dashed border-border-soft">
                   <div className="flex flex-wrap gap-1.5">
                     {p.stack.slice(0, 4).map((t) => (
                       <span
                         key={t}
-                        className="text-[11px] font-mono text-foreground-subtle border border-border-soft rounded-md px-1.5 py-0.5"
+                        className="text-[11px] font-mono text-foreground-subtle border-2 border-border-soft rounded-full px-2 py-0.5"
                       >
                         {t}
                       </span>
@@ -66,8 +66,8 @@ export default function Projects() {
                     )}
                   </div>
 
-                  <span className="mt-5 inline-flex items-center gap-1 text-sm text-foreground-muted group-hover:text-primary-400 transition-colors">
-                    View details <ArrowUpRight className="h-4 w-4" />
+                  <span className="mt-5 inline-flex items-center gap-1 font-scrawl text-base text-foreground-muted group-hover:text-primary-500 transition-colors">
+                    open case file <ArrowUpRight className="h-4 w-4" />
                   </span>
                 </div>
               </button>

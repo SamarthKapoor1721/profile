@@ -116,13 +116,13 @@ function Login({ onLogin }: { onLogin: (pw: string) => void }) {
           onChange={(e) => setPw(e.target.value)}
           autoFocus
           placeholder="Password"
-          className="mt-5 w-full rounded-lg border border-border-soft bg-background/50 px-4 py-2.5 text-sm focus:outline-none focus:border-primary-500/50 focus:ring-2 focus:ring-primary-500/20"
+          className="mt-5 w-full rounded-[10px] border-2 border-foreground bg-background-elevated px-4 py-2.5 text-base text-foreground focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/30"
         />
         {err && <p className="mt-2 text-xs text-accent-danger">{err}</p>}
         <button
           type="submit"
           disabled={busy || !pw}
-          className="mt-4 w-full inline-flex items-center justify-center gap-2 rounded-lg bg-primary-500 text-background font-semibold py-2.5 text-sm hover:bg-primary-400 transition-colors disabled:opacity-50"
+          className="mt-4 w-full inline-flex items-center justify-center gap-2 rounded-[10px] border-2 border-foreground bg-primary-500 text-white font-semibold py-2.5 text-sm shadow-ink-sm hover:-translate-y-0.5 transition-all disabled:opacity-50"
         >
           {busy ? <Loader2 className="h-4 w-4 animate-spin" /> : null}
           Unlock
@@ -229,7 +229,7 @@ function Dashboard({ password, onLogout }: { password: string; onLogout: () => v
             <h2 className="text-sm font-semibold text-foreground-muted">{items.length} item{items.length === 1 ? "" : "s"}</h2>
             <button
               onClick={() => setEditing({ index: null, data: DEFAULTS[type]() })}
-              className="inline-flex items-center gap-1.5 rounded-lg bg-primary-500 text-background font-semibold px-3 py-1.5 text-sm hover:bg-primary-400 transition-colors"
+              className="inline-flex items-center gap-1.5 rounded-[9px] border-2 border-foreground bg-primary-500 text-white font-semibold px-3 py-1.5 text-sm shadow-ink-sm hover:-translate-y-0.5 transition-all"
             >
               <Plus className="h-4 w-4" /> Add new
             </button>
@@ -284,7 +284,7 @@ function Dashboard({ password, onLogout }: { password: string; onLogout: () => v
       {/* Toast */}
       {toast && (
         <div className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm shadow-lg ${
-          toast.kind === "ok" ? "bg-primary-500 text-background" : "bg-accent-danger text-white"
+          toast.kind === "ok" ? "bg-primary-500 text-white" : "bg-accent-danger text-white"
         }`}>
           {toast.kind === "err" && <AlertTriangle className="h-4 w-4" />}
           {toast.msg}
@@ -323,7 +323,7 @@ function Editor({
       </div>
 
       <div className="mt-6 flex items-center gap-3">
-        <button onClick={onSave} className="inline-flex items-center gap-2 rounded-lg bg-primary-500 text-background font-semibold px-4 py-2.5 text-sm hover:bg-primary-400 transition-colors">
+        <button onClick={onSave} className="inline-flex items-center gap-2 rounded-[10px] border-2 border-foreground bg-primary-500 text-white font-semibold px-4 py-2.5 text-sm shadow-ink-sm hover:-translate-y-0.5 transition-all">
           <Save className="h-4 w-4" /> {isNew ? "Add item" : "Save changes"}
         </button>
         <button onClick={onCancel} className="rounded-lg border border-border-soft px-4 py-2.5 text-sm text-foreground-muted hover:text-foreground transition-colors">
@@ -335,7 +335,7 @@ function Editor({
 }
 
 const inputCls =
-  "w-full rounded-lg border border-border-soft bg-background/50 px-3 py-2 text-sm text-foreground placeholder:text-foreground-subtle/60 focus:outline-none focus:border-primary-500/50 focus:ring-2 focus:ring-primary-500/20";
+  "w-full rounded-[8px] border-2 border-foreground bg-background-elevated px-3 py-2 text-sm text-foreground placeholder:text-foreground-subtle/60 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/30";
 
 function FieldInput({
   field, value, onChange, password,

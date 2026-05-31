@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { Inter, Architects_Daughter, Bangers, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -7,15 +7,29 @@ import ScrollProgress from "@/components/ui/scroll-progress";
 import CommandPalette from "@/components/ui/command-palette";
 import { siteUrl, siteConfig } from "@/lib/site";
 
-const inter = Inter({
+// Comic-strip type system (Direction A · Comic Strip) — per the brief,
+// "bold comic display + clean sans body":
+//   sans  — Inter               → body copy, the clean readable voice
+//   boom  — Bangers             → display / headlines, the bold inked shout
+//   scrawl— Architects Daughter → annotations, eyebrows, sketchy captions (used sparingly)
+//   mono  — JetBrains Mono       → chips, terminal, data readouts
+const sans = Inter({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-sans",
   display: "swap",
 });
 
-const spaceGrotesk = Space_Grotesk({
+const boom = Bangers({
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
+  weight: "400",
+  variable: "--font-boom",
+  display: "swap",
+});
+
+const scrawl = Architects_Daughter({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-scrawl",
   display: "swap",
 });
 
@@ -51,12 +65,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      data-theme="dark"
+      data-theme="light"
       suppressHydrationWarning
-      className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrains.variable}`}
+      className={`${sans.variable} ${boom.variable} ${scrawl.variable} ${jetbrains.variable}`}
     >
       <head>
-        {/* Set theme before paint to prevent FOUC. */}
+        {/* Set theme before paint to prevent FOUC. Paper daylight is the default. */}
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark'){document.documentElement.dataset.theme=t;}}catch(e){}})();`,

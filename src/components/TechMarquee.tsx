@@ -61,10 +61,10 @@ function Row({ items, reverse }: { items: Tech[]; reverse?: boolean }) {
         {row.map((t, i) => (
           <span
             key={`${t.slug}-${i}`}
-            className="group/pill flex shrink-0 items-center gap-2.5 rounded-lg border border-border-soft bg-background/50 px-4 py-2.5 whitespace-nowrap hover:border-primary-500/30 transition-colors"
+            className="group/pill flex shrink-0 items-center gap-2.5 rounded-full border-2 border-foreground bg-background-elevated px-4 py-2 whitespace-nowrap shadow-ink-sm transition-colors"
           >
             <LogoMark slug={t.slug} name={t.name} />
-            <span className="font-mono text-sm text-foreground-muted group-hover/pill:text-foreground transition-colors">
+            <span className="font-mono text-sm text-foreground-muted group-hover/pill:text-primary-500 transition-colors">
               {t.name}
             </span>
           </span>
@@ -76,9 +76,9 @@ function Row({ items, reverse }: { items: Tech[]; reverse?: boolean }) {
 
 export default function TechMarquee() {
   return (
-    <div className="relative border-y border-border-soft bg-background-elevated/30 py-6 overflow-hidden">
+    <div className="relative border-y-[3px] border-foreground bg-background-elevated/40 py-6 overflow-hidden halftone">
       <div className="container-prose mb-4">
-        <span className="label-mono text-foreground-subtle">Tools I build with</span>
+        <span className="label-mono">↳ web-shooter loadout · tools I build with</span>
       </div>
       <div className="space-y-3">
         <Row items={rowA} />

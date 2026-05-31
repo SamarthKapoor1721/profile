@@ -18,10 +18,10 @@ export default function Experience() {
       />
 
       <div className="mt-14 relative">
-        {/* Timeline rail */}
+        {/* Web-line rail — a hand-strung strand the nodes hang from */}
         <div
           aria-hidden
-          className="absolute left-[11px] top-1 bottom-1 w-px bg-border-soft"
+          className="absolute left-[13px] top-1 bottom-1 w-[3px] bg-[repeating-linear-gradient(to_bottom,rgb(var(--fg))_0_8px,transparent_8px_14px)]"
         />
 
         <ul className="space-y-10">
@@ -36,34 +36,34 @@ export default function Experience() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ delay: i * 0.06, duration: 0.5 }}
-                className="relative pl-10"
+                className="relative pl-12"
               >
-                {/* Node */}
+                {/* Web node */}
                 <div
-                  className={`absolute left-0 top-1 grid h-6 w-6 place-items-center rounded-full border bg-background ${
-                    isActive ? "border-primary-500" : "border-border-strong"
+                  className={`absolute left-0 top-1 grid h-7 w-7 place-items-center rounded-full border-2 border-foreground shadow-ink-sm ${
+                    isActive ? "bg-primary-500 animate-pulse" : "bg-background-elevated"
                   }`}
                 >
-                  <Icon className={`h-3 w-3 ${isActive ? "text-primary-400" : "text-foreground-subtle"}`} />
+                  <Icon className={`h-3.5 w-3.5 ${isActive ? "text-white" : "text-foreground"}`} />
                 </div>
 
-                <div className="rounded-xl border border-border-soft bg-background-elevated/40 p-5 hover:border-primary-500/30 transition-colors">
+                <div className="rounded-[12px_10px_14px_11px] border-2 border-foreground bg-background-elevated p-5 shadow-ink spidey-sense">
                   <div className="flex flex-wrap items-center justify-between gap-2">
-                    <h3 className="font-display text-lg font-semibold text-foreground">
+                    <h3 className="font-display text-xl tracking-wide text-foreground">
                       {item.role}
                     </h3>
-                    <span className="font-mono text-xs text-foreground-subtle">{item.period}</span>
+                    <span className="chip">{item.period}</span>
                   </div>
-                  <p className="mt-0.5 text-sm text-primary-400">{item.org}</p>
+                  <p className="mt-1 font-scrawl text-base text-primary-500">{item.org}</p>
 
-                  <p className="mt-3 text-sm text-foreground-muted leading-relaxed">
+                  <p className="mt-3 text-base text-foreground-muted leading-relaxed">
                     {item.summary}
                   </p>
 
-                  <ul className="mt-4 space-y-2 text-sm text-foreground-muted">
+                  <ul className="mt-4 space-y-2 text-base text-foreground-muted">
                     {item.highlights.map((h) => (
                       <li key={h} className="flex gap-2.5 items-start">
-                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary-500/70" />
+                        <span className="mt-2 h-2 w-2 shrink-0 rotate-45 bg-primary-500" />
                         <span>{h}</span>
                       </li>
                     ))}
