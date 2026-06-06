@@ -121,5 +121,19 @@
     "links": {
       "demo": "https://talkingrabbitai.streamlit.app/"
     }
+  },
+  {
+    "title": "StudyVault",
+    "slug": "studyvault-three-omega.vercel.app",
+    "tagline": "This project helps in managing your study material",
+    "category": "Education",
+    "year": "2026",
+    "problem": "",
+    "approach": "",
+    "stack": [],
+    "impact": [],
+    "links": {
+      "demo": "https://studyvault-three-omega.vercel.app/"
+    }
   }
 ]
